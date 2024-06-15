@@ -1,8 +1,8 @@
 package config
 
 import (
-	"accrualEngine/internal/models/config"
-	"accrualEngine/logger"
+	"scoreboard/internal/models/config"
+	"scoreboard/logger"
 
 	"github.com/spf13/viper"
 )

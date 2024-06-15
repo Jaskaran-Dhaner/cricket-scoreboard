@@ -1,8 +1,8 @@
 package validators
 
 import (
-	"accrualEngine/logger"
 	"regexp"
+	"scoreboard/logger"
 	"strings"
 	"unicode"
 	"unicode/utf8"

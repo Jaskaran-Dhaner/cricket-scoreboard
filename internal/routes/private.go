@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"accrualEngine/internal/middleware"
+	"scoreboard/internal/middleware"
 
 	"github.com/gin-gonic/gin"
 )

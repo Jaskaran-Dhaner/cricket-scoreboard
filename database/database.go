@@ -1,9 +1,9 @@
 package database
 
 import (
-	"accrualEngine/config"
-	"accrualEngine/logger"
 	"context"
+	"scoreboard/config"
+	"scoreboard/logger"
 	"sync"
 	"time"
 

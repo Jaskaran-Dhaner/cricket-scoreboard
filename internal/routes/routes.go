@@ -1,10 +1,10 @@
 package routes
 
 import (
-	"accrualEngine/config"
-	"accrualEngine/internal/middleware"
+	"scoreboard/config"
+	"scoreboard/internal/middleware"
 
-	_ "accrualEngine/docs"
+	_ "scoreboard/docs"
 
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
