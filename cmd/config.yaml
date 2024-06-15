@@ -1,0 +1,12 @@
+# config.yaml
+server:
+  host: localhost
+  port: 8080
+database:
+  host: localhost
+  port: 5432
+  user: accuralEngine
+  mongouri: mongodb+srv://accuralEngine:oyec9K6WZ7uQutLE@acurralengine.8zguqu3.mongodb.net/
+  password: oyec9K6WZ7uQutLE
+  dbname: master
+  sslmode: disable

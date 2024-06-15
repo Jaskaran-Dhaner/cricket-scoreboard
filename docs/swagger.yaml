@@ -1,0 +1,15 @@
+basePath: /v1/api
+host: localhost:8080
+info:
+  contact:
+    name: Alexey
+  description: API server for accrual engine
+  title: accrual engine API
+  version: "1.0"
+paths: {}
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
