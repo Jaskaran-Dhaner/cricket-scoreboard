@@ -17,7 +17,8 @@ var (
 )
 
 func init() {
-	LoadDB()
+	config.AppConfig.Database.DB, _ = LoadDB()
+	logger.Info("database loaded")
 }
 
 func getClient() (*mongo.Client, error) {
@@ -46,7 +47,9 @@ func LoadDB() (*mongo.Database, error) {
 		logger.Fatal(err.Error())
 		return nil, err
 	}
+
+	config.AppConfig.Database.Client = client
 	// Set client options
 	logger.Info("connected to mongodb")
-	return client.Database(config.Database.DBName), nil
+	return config.AppConfig.Database.Client.Database(config.Database.DBName), nil
 }

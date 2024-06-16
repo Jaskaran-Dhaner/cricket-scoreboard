@@ -18,15 +18,14 @@ func SetupRoutes() *gin.Engine {
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.Use(middleware.CORSMiddleware())
 
-	router.Run(config.Server.Host + ":" + config.Server.Port)
-
 	// Set up public routes
-	publicRoutes := router.Group("/public")
+	publicRoutes := router.Group("/v1/api/public")
 	SetupPublicRoutes(publicRoutes)
 
 	// Set up private routes
-	privateRoutes := router.Group("/private")
+	privateRoutes := router.Group("/v1/api/private")
 	SetupPrivateRoutes(privateRoutes)
+	router.Run(config.Server.Host + ":" + config.Server.Port)
 
 	return router
 }

@@ -8,10 +8,11 @@ import (
 )
 
 var (
-	AppConfig config.Config
-	err       error
-	Database  config.Database
-	Server    config.Server
+	AppConfig   config.Config
+	err         error
+	Database    config.Database
+	Collections config.Collections
+	Server      config.Server
 )
 
 func init() {
@@ -19,6 +20,7 @@ func init() {
 
 	Database = AppConfig.Database
 	Server = AppConfig.Server
+	Collections = AppConfig.Collections
 }
 
 func loadConfig(path string) (config config.Config, err error) {
