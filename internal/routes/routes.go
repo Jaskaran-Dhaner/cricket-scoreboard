@@ -1,7 +1,6 @@
 package routes
 
 import (
-	"scoreboard/config"
 	"scoreboard/internal/middleware"
 
 	_ "scoreboard/docs"
@@ -25,7 +24,6 @@ func SetupRoutes() *gin.Engine {
 	// Set up private routes
 	privateRoutes := router.Group("/v1/api/private")
 	SetupPrivateRoutes(privateRoutes)
-	router.Run(config.Server.Host + ":" + config.Server.Port)
 
 	return router
 }

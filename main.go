@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "scoreboard/config"
+	"scoreboard/config"
 	_ "scoreboard/database"
 	"scoreboard/internal/routes"
 	"scoreboard/logger"
@@ -29,6 +29,9 @@ func init() {
 
 func main() {
 	// Run server
-	routes.SetupRoutes().Run()
+	r := routes.SetupRoutes()
+	port := config.AppConfig.Server.Port
+	logger.Log.Info("Starting server on port " + port)
+	logger.Log.Fatal(r.Run(":" + port).Error())
 	logger.Log.Fatal("Failed to start server")
 }
