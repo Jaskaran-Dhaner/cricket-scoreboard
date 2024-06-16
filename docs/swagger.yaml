@@ -1,12 +1,106 @@
 basePath: /v1/api
+definitions:
+  auth.LoginResponse:
+    properties:
+      accessToken:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      refreshToken:
+        type: string
+      role:
+        $ref: '#/definitions/auth.Role'
+    required:
+    - accessToken
+    - email
+    - name
+    - refreshToken
+    - role
+    type: object
+  auth.Role:
+    enum:
+    - admin
+    - user
+    type: string
+    x-enum-varnames:
+    - AdminRole
+    - UserRole
+  auth.UserLogin:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  auth.UserRegister:
+    properties:
+      email:
+        type: string
+      gender:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - gender
+    - name
+    - password
+    type: object
 host: localhost:8080
 info:
   contact:
-    name: Alexey
-  description: API server for accrual engine
-  title: accrual engine API
+    name: Jaskaran Singh
+  description: API server for cricket scoreboard
+  title: cricket scoreboard API's
   version: "1.0"
-paths: {}
+paths:
+  /public/auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Logs in a user
+      parameters:
+      - description: Login User
+        in: body
+        name: loginRequest
+        required: true
+        schema:
+          $ref: '#/definitions/auth.UserLogin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/auth.LoginResponse'
+      summary: Login a user
+      tags:
+      - Auth
+  /public/auth/signup:
+    post:
+      consumes:
+      - application/json
+      description: Creates a new user
+      parameters:
+      - description: Register User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/auth.UserRegister'
+      produces:
+      - application/json
+      responses: {}
+      summary: Sign up a new user
+      tags:
+      - Auth
 securityDefinitions:
   ApiKeyAuth:
     in: header
